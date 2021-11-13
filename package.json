@@ -1,0 +1,20 @@
+{
+  "name": "video-meet",
+  "version": "1.0.0",
+  "description": "Video chat application, user can create own room ",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "keywords": [
+    "video",
+    "text",
+    "chat"
+  ],
+  "author": "gladwin c",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
