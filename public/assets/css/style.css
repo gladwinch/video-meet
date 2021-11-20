@@ -3,6 +3,17 @@ body {
     font-size: large
 }
 
+ul {
+    list-style: none !important;
+    margin: 0;
+    padding: 0;
+}
+
+input {
+    outline: none !important;
+    border: none;
+}
+
 .logo {
     height: 43px;
 }
@@ -35,4 +46,8 @@ li.nav-item {
     border: 5px solid white;
     border-radius: 5px;
     box-shadow 1px 1px 5px gray;
+}
+
+.jumbotron {
+    background-color: white;
 }
