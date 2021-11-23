@@ -7,7 +7,7 @@
     <title>Create or join meeting</title>
     <link rel="stylesheet" href="public/assets/css/bootstrap.min.css">
     <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/icon??family=Material+Icons' rel='stylesheet'>
+    <!-- <link href='http://fonts.googleapis.com/icon??family=Material+Icons' rel='stylesheet'> -->
     <link rel="stylesheet" href="/public/assets/css/style.css">
 </head>
 <body style="padding-top: 3.5rem">
@@ -33,10 +33,14 @@
                     <a href="#" class="nav-link">Sign in</a>
                 </li> 
                 <li class="nav-item">
-                    <button class="btn btn-outline-secondary btn-lg text-info font-weight-bold">Join the meedting</button>
+                    <button 
+                        class="btn btn-outline-secondary btn-lg text-info font-weight-bold join-meeting"
+                    >
+                        Join the meeting
+                    </button>
                 </li>
                 <li class="nav-item">
-                    <button class="btn btn-info btn-lg text-light font-weight-bold">Start a meeting</button>
+                    <button class="btn btn-info btn-lg text-light font-weight-bold new-meeting">Start a meeting</button>
                 </li>
             </ul>
         </div>
@@ -54,7 +58,7 @@
                     <ul class="display-center justify-content-start">
                         <li>
                             <button 
-                                class="btn btn-lg text-light font-weight-bold display-center"
+                                class="new-meeting btn btn-lg text-light font-weight-bold display-center"
                                 style="background-color: #01796b;"
                             >
                                 New Meeting
@@ -66,13 +70,13 @@
                                 class="btn btn-lg btn-outline-secondary text-dark font-weight-bold display-center"
                                 style="background-color: #ffffff;"
                             >
-                                <input type="text" placeholder="Enter a code" />
+                                <input type="text" placeholder="Enter a code" class="enter-code" />
                             </button>
                         </li>
 
                         <li>
                             <button 
-                                class="btn btn-lg font-weight-bold display-center"
+                                class="btn btn-lg font-weight-bold display-center join-action"
                                 style="color: #818181;"
                             >
                                 Join
@@ -86,5 +90,40 @@
             </div>
         </div>
     </main>
+
+    <footer class="container">
+        <h6>
+            Learn more about 
+            <span class="learn-more info-text">
+                google meet
+            </span>
+            .
+        </h6>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function() {
+            $(document).on('click', '.join-meeting', function() {
+                $(".enter-code").focus()
+            })
+
+            $(document).on('click', '.join-action', function() {
+                var join_value = $('.enter-code').val()
+                var meetingUrl = window.location.origin+"?meetingID="+join_value
+
+                console.log("test: ", meetingUrl)
+
+                window.location.replace(meetingUrl)
+            })
+
+            $(document).on('click', '.new-meeting', function() {
+                var eight_d_value = Math.floor(Math.random()+10000000)
+                var meetingUrl = window.location.origin+"?meetingID="+eight_d_value
+
+                window.location.replace(meetingUrl)
+            })
+        })
+    </script>
 </body>
 </html>
